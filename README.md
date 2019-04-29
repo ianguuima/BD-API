@@ -53,6 +53,8 @@ como ela funciona acessando o arquivo **ConnectionManager.java**, é lá que as 
 Para ajudar ainda mais, eu criei um metódo de exemplo utilizando a API. Você pode vê-lo na **ConnectionManager.java**
 ele chama justamente **metodoExemplo()**. Você sempre irá fazer os metódos de conexão MySQL/SQLite no arquivo principal da API.
 
+<img src="https://i.imgur.com/JeOAHaJ.png">
+
 Porque afinal de contas, esses dois armazenamentos são parecidos, logo, qualquer metódo das funções do SQL funcionarão sem problemas.
 
 
