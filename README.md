@@ -33,7 +33,7 @@ Coloquei algumas anotações para orientar, sinta-se a vontade para removê-las.
 
 <h3> • Passo 2 </h3>
 
-Acredite, a pior parte já passou, hahaha! Agora, baixe o código do GitHub e coloque nele no seu código. Certifique-se que ele ficou certinho
+Acredite, a pior parte já passou, hahaha! Agora, baixe o código do GitHub e coloque ele no seu código. Certifique-se que ele ficou certinho
 
 <img src="https://i.imgur.com/csvNvrm.png">
 
