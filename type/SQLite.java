@@ -18,19 +18,20 @@ public class SQLite extends ConnectionBase {
         this.query = 0;
     }
 
-    @Override
+  @Override
     public void openConnection() {
         try {
             query++;
             if ((connection != null) && (!connection.isClosed()))
                 return;
-            
+
             Class.forName("org.sqlite.JDBC");
-            File dataFolder = new File(getInstance().getDataFolder(), "playerstorage.db");
+            File dataFolder = new File(Main.plugin.getDataFolder(), "playerstorage.db");
             connection = DriverManager.getConnection("jdbc:sqlite:" + dataFolder);
-        } catch(SQLException e) {
+        } catch(SQLException | ClassNotFoundException e) {
             query--;
             e.getStackTrace();
+            e.printStackTrace();
             System.out.println(
                     "Ocorreu um erro ao abrir a conexão!");
         }
