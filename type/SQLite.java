@@ -24,7 +24,8 @@ public class SQLite extends ConnectionBase {
             query++;
             if ((connection != null) && (!connection.isClosed()))
                 return;
-
+            
+            Class.forName("org.sqlite.JDBC");
             File dataFolder = new File(getInstance().getDataFolder(), "playerstorage.db");
             connection = DriverManager.getConnection("jdbc:sqlite:" + dataFolder);
         } catch(SQLException e) {
