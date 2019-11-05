@@ -1,9 +1,11 @@
-package me.imoedas.connections.type;
+package me.chest.database.type;
 
 import java.io.File;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import static me.imoedas.iMoedas.*;
+
+import static me.chest.Chest.getInstance;
+
 
 public class SQLite extends ConnectionBase {
 
@@ -26,7 +28,7 @@ public class SQLite extends ConnectionBase {
                 return;
 
             Class.forName("org.sqlite.JDBC");
-            File dataFolder = new File(Main.plugin.getDataFolder(), "playerstorage.db");
+            File dataFolder = new File(getInstance().getDataFolder(), "playerstorage.db");
             connection = DriverManager.getConnection("jdbc:sqlite:" + dataFolder);
         } catch(SQLException | ClassNotFoundException e) {
             query--;

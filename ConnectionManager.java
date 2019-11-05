@@ -1,42 +1,33 @@
-package me.imoedas.connections;
+package me.chest.database;
 
+import me.chest.database.type.ConnectionBase;
 import lombok.Getter;
-import me.imoedas.connections.type.ConnectionBase;
-import me.imoedas.connections.type.MySQL;
-import me.imoedas.connections.type.SQLite;
-import org.bukkit.Bukkit;
+import me.chest.database.type.MySQL;
+import me.chest.database.type.SQLite;
 import org.bukkit.configuration.ConfigurationSection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static me.imoedas.iMoedas.*;
+import static me.chest.Chest.getInstance;
 
 public class ConnectionManager {
 
     @Getter
     private ConnectionBase principalConnection;
 
-    public ConnectionManager() {
-        principalConnection = getMainConnection();
-        criarTabela("PlayerMoedas", "nome varchar(32), moedas int, compras int");
+    @Getter private String tabela;
+    @Getter private String[] colunas;
 
-        metodoExemplo();
+    public ConnectionManager(String tabela, String[] colunas) {
+        this.tabela = tabela;
+        this.colunas = colunas;
     }
 
-
-
-    public void metodoExemplo(){
-        try {
-            principalConnection.openConnection();
-            Connection connection = principalConnection.getConnection();
-            connection.createStatement().executeUpdate("UPDATE...");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            principalConnection.closeConnection();
-        }
+    public void configure(){
+        principalConnection = getMainConnection();
+        criarTabela(tabela, String.join(",", colunas));
     }
 
 

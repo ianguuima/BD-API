@@ -1,4 +1,4 @@
-package me.imoedas.connections.type;
+package me.chest.database.type;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
